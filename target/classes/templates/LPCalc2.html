@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>YuGiOh LP Calculator</title>
+	<link rel="icon" type="image/x-icon" href="/images/YugiohLogoTransparent.png">
+	<link rel="stylesheet" href="/css/LPCalc.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<!--Intro Video: wird direkt zu beginn einmalig abgespielt und dann ausgeblendet width="100%" height="100%"-->
+	<video id="intro" th:if="${lpCalcFormData.intro_ended == false}" autoplay source src="/video/ItsTimeToDuel.mp4" type="audio/mpeg"></video>
+	
+	<!--Script: wird nach Ende des Intro Videos getriggert, klickt den Button "btn_intro_ended"-->
+	<script language="javascript">
+		let audio = document.getElementById("intro");
+		audio.onended = function() {
+		  document.getElementById("btn_intro_ended").click();
+		  //$.post("LPCalc.html" ); //{ name: "intro_ended", value: "true" }
+		  //var xhr = new XMLHttpRequest();
+		  //xhr.open("POST", "LPCalc", true);
+		};
+	</script>
+
+	<!--Formular mit Button btn_intro_ended: 
+		- trigget Server Roundtrip druch post/submit nach Video/Intro Ende, um Video auszublenden
+		- Workaround -> post request über Javascript hat nicht geklappt, daher per automatischen Button klick-->
+	<form method="post" style="display:none">
+		<button id="btn_intro_ended" name="intro_ended" value="true" type="submit"></button>
+	</form>
+
+	<!--YuGiOh LP Calculator Formular: ausgeblendet bis Intro zu ende abgespielt-->
+	<div id="calc_wrapper" th:if="${lpCalcFormData.intro_ended == true}">
+		<div id="lps_wrapper" >
+			<div class="lp_both_wrapper" id="lp_p1_wrapper">
+				<form method="post">
+					<h1 class="player">Player 1</h1>
+					<input class="lp" name="lp" type="number" th:object="${lpCalcFormData}" th:value="*{lpP1}" readonly>
+					<br><br>
+					<button class="button" name="action" value="half_p1" type="submit" method="post">HALF</button>
+					<br>
+					<button class="button" name="action" value="+_p1" type="submit">+</button>
+					<button class="button" name="action" value="-_p1" type="submit">-</button>
+					<br><br>
+				</form>
+			</div>
+			<div class="lp_both_wrapper" id="lp_p2_wrapper">
+				<form method="post">
+					<h1 class="player">Player 2</h1>
+					<input class="lp" name="lp" type="number" th:object="${lpCalcFormData}" th:value="*{lpP2}" readonly>
+					<br><br>
+					<button class="button" name="action" value="half_p2" type="submit" method="post">HALF</button>
+					<br>
+					<button class="button" name="action" value="+_p2" type="submit">+</button>
+					<button class="button" name="action" value="-_p2" type="submit">-</button>
+					<br><br>
+				</form>
+			</div>
+		</div>
+		<div class="digits_wrapper">
+			<form method="post">
+				<input class="digits" name="x" type="number" th:object="${lpCalcFormData}" th:value="*{x}" readonly>
+				<br><br>
+				<button class="button" name="digit"  value="1"  type="submit">1</button>
+				<button class="button" name="digit"  value="2"  type="submit">2</button>
+				<button class="button" name="digit"  value="3"  type="submit">3</button>
+				<button class="button" name="digit"  value="4"  type="submit">4</button>
+				<button class="button" name="digit"  value="5"  type="submit">5</button>
+				<button class="button" name="digit"  value="6"  type="submit">6</button>
+				<button class="button" name="digit"  value="7"  type="submit">7</button>
+				<button class="button" name="digit"  value="8"  type="submit">8</button>
+				<button class="button" name="digit"  value="9"  type="submit">9</button>
+				<button class="button" name="digit"  value="0"  type="submit">0</button>
+				<button class="button" name="action" value="del"type="submit">Del</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

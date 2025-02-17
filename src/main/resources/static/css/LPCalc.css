@@ -1,0 +1,145 @@
+
+body{
+	font-size: 1vw;
+	font-family: "Orbitron", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+	
+	text-align: center;
+	
+	width: 100%;
+	margin: 0;
+	
+	background-image: url("/images/CalculatorBackgroundOpt1.jpg");
+	background-repeat: no-repeat;
+ 	background-size: 100%; 
+	background-color: black;
+}
+#intro{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+#calc_wrapper{
+	height: 50%;
+	width: fit-content;
+
+	margin: auto;
+	margin-top: 10%;
+}
+#players_wrapper{
+	height: fit-content;
+	width: fit-content;
+
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.player_wrapper{
+	display: inline-block;
+	
+	height: fit-content;
+	width: fit-content;
+}
+#player1_wrapper{
+	
+}
+#player2_wrapper{
+	
+}
+.player{
+	color: white;
+}
+#player1{
+	text-align: left;
+}
+#player2{
+	text-align: right;
+}
+.lp{
+	text-align: center;
+	color: white;
+	font-size: 3vw;
+	font-family: "Orbitron", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+	
+	background-color: black;
+	border-radius: 5%;
+}
+#operations_wrapper{
+	height: fit-content;
+	width: fit-content;
+
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.operations{
+	display: inline-block;
+	
+	height: fit-content;
+	width: fit-content;
+
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#x_wrapper{
+	display: inline-block;
+	
+	height: fit-content;
+	width: fit-content;
+
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#x{
+	text-align: right;
+	font-size: 1.5vw;
+	font-family: "Orbitron", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+.digits_wrapper{
+	height: fit-content;
+	width: fit-content;
+	
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.digits{
+	color: white;
+	background-color: black;
+}
+.button{
+	color: white;
+	background-color: black;
+}
+/*
+input{
+	font-size: 1vw;
+	font-family: "Orbitron", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+}
+*/
+button{
+	font-size: 1vw;
+	font-family: "Orbitron", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+
+	height: 2vw;
+	width: 4vw;
+	margin: 10px;
+}
