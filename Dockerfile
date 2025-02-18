@@ -12,6 +12,6 @@ ARG JAR_FILE=target/*.jar
 # CMD wird beim erstellen des Containers aus dem Image heraus ausgeführt
 
 # kopiert files und verzeichnise / ordner
-COPY .target/YuGiOhTournament-0.0.1-SNAPSHOT.jar app.jar
+COPY ./target/YuGiOhTournament-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java","-jar","/app.jar"]
