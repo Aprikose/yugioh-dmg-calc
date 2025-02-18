@@ -1,5 +1,5 @@
 # base image / vorlage angeben -> FROM SCRATCH = leers image
-FROM openjdk:8-jdk-alpine
+FROM openjdk:21-jdk-alpine
 
 # optional Importing Parameter / variable welche beim build übergeben werde kann
 ARG JAR_FILE=target/*.jar
