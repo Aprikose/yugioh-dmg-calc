@@ -20,7 +20,7 @@
 FROM openjdk:8-jdk-alpine
 
 # optional Importing Parameter / variable welche beim build übergeben werde kann
-#ARG JAR_FILE=target/*.jar
+ARG JAR_FILE=target/*.jar
 
 # optional - Autor
 # MAINTAINER name
@@ -32,6 +32,8 @@ FROM openjdk:8-jdk-alpine
 # kopiert files und verzeichnise / ordner
 # hier wird die Variable verwendet
 #COPY ${JAR_FILE} app.jar
+
+COPY . .
 
 RUN ./mvnw spring-boot:run
 
